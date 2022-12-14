@@ -1,5 +1,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper';
+
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -16,10 +17,34 @@ function App() {
         </h1>
         <Navi></Navi>        
       </header>
-      <Sliderswiper></Sliderswiper>
+      <Topswiper></Topswiper>
       <Preinterview></Preinterview>
       <Footer></Footer>
     </div>
+  );
+}
+
+const Topswiper = () => {
+  return(
+    <Swiper
+    modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
+    spaceBetween={10}
+    slidesPerView={2}
+    navigation
+    autoplay={{
+      delay: 2000,
+      disableOnInteraction: false,
+    }}
+    pagination={{ clickable: true }}
+    scrollbar={{ draggable: true }}
+    onSlideChange={() => console.log('slide change')}
+    onSwiper={(swiper) => console.log(swiper)}
+    >
+      <SwiperSlide>Slide 1</SwiperSlide>
+      <SwiperSlide>Slide 2</SwiperSlide>
+      <SwiperSlide>Slide 3</SwiperSlide>
+      <SwiperSlide>Slide 4</SwiperSlide>
+    </Swiper>
   );
 }
 
@@ -52,34 +77,7 @@ function Navi(){
   )
 }
 
-const Sliderswiper = () => {
- 
-    return (
-      <Swiper
-      // install Swiper modules
-      modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
-      spaceBetween={50}
-      slidesPerView={3}
-      navigation
-      autoplay={{
-        "delay": 2500,
-        "disableOnInteraction": false
-      }}
-      pagination={{ clickable: true }}
-      scrollbar={{ draggable: true }}
-      onSwiper={(swiper) => console.log(swiper)}
-      onSlideChange={() => console.log('slide change')}
 
-      
-    >
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>     
-      </Swiper>
-    );
- 
-}
 const Preinterview = () => {
   return(
     <section className="section py-5 text-center">
